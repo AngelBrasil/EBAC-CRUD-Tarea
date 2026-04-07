@@ -19,6 +19,7 @@ public class Contexto {
     static Connection connection;
 
     public static void main(String[] args) throws SQLException {
+        
         String url = "jdbc:mysql://localhost:3307/modulo59";
         String user = "root";
         String password = "root";
