@@ -1,0 +1,21 @@
+CREATE TABLE usuarios(
+  idUsuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  edad INT
+);
+
+
+CREATE TABLE telefonos(
+  idTelefono INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  numero VARCHAR(100),
+  tipo VARCHAR(100),
+  idUsuario INT
+);
+
+CREATE TABLE direcciones(
+  idDireccion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  calle VARCHAR(100),
+  numero INT,
+  estado VARCHAR(100),
+  idUsuario INT
+);
