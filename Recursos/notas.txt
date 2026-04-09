@@ -1,0 +1,69 @@
+CREATE TABLE empleados(
+  idEmpleado INT NOT	 NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  edad INT,
+  direccion VARCHAR(100),
+  tipo VARCHAR(100),
+  puesto VARCHAR(100)
+);
+
+CREATE TABLE familiares(
+  idFamilia INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idEmpleado INT,
+  nombre VARCHAR(100),
+  parentesco VARCHAR(100)
+);
+
+CREATE TABLE estudios(
+  idEstudio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idEmpleado INT,
+  institucion VARCHAR(100),
+  documento VARCHAR(100)
+);
+
+//INSERT
+INSERT INTO empleados (nombre, edad, direccion , tipo, puesto) VALUES ("Angel" , 40 , "CDMX" , "Empleado" , "Desarrollador");
+INSERT INTO empleados (nombre, edad, direccion , tipo, puesto) VALUES ("Karina" , 39 , "Puebla" , "Empleado" , "Logistica");
+INSERT INTO empleados (nombre, edad, direccion , tipo, puesto) VALUES ("Manuel" , 44 , "Estado de México" , "Operario" , "Transportista");
+
+INSERT INTO familiares(idEmpleado , nombre , parentesco) VALUES (1 , "José" , "papá");
+INSERT INTO familiares(idEmpleado , nombre , parentesco) VALUES (1 , "Gloria" , "mamá");
+INSERT INTO familiares(idEmpleado , nombre , parentesco) VALUES (1 , "Otro" , "hermano");
+INSERT INTO familiares(idEmpleado , nombre , parentesco) VALUES (2 , "Manuel" , "papá");
+INSERT INTO familiares(idEmpleado , nombre , parentesco) VALUES (2 , "Ester" , "mamá");
+INSERT INTO familiares(idEmpleado , nombre , parentesco) VALUES (2 , "Lidia" , "hermana");
+
+INSERT INTO estudios (idEmpleado, institucion, documento) VALUES (1 , "EBAC" , "En-Proceso");
+INSERT INTO estudios (idEmpleado, institucion, documento) VALUES (1 , "IPN" , "Ingeniero");
+INSERT INTO estudios (idEmpleado, institucion, documento) VALUES (1 , "CONALEP" , "Técnico");
+INSERT INTO estudios (idEmpleado, institucion, documento) VALUES (2 , "Villa de los niños" , "Técnico");
+INSERT INTO estudios (idEmpleado, institucion, documento) VALUES (2 , "Primaria rutal" , "Certificado");
+
+//UPDATE
+UPDATE empleados SET nombre = "Manuel", edad = 28 , direccion = "Estado de México" , tipo ="Operario" , puesto="Almacenista" WHERE idEmpleado = 1;
+UPDATE familiares SET idEmpleado = 1 , nombre="Karina", parentesco="Esposa" WHERE idFamilia = 3;
+UPDATE estudios SET idEmpleado = 1 , institucion="EBAC" , documento="FULLSTACK" WHERE idEstudio = 1;
+
+//DELETE
+DELETE FROM empleados WHERE idEmpleado = 2;
+DELETE FROM familiares WHERE idFamilia = 2;
+DELETE FROM estudios WHERE idEstudio = 3;
+
+//SELECT 
+SELECT * FROM empleados WHERE idEmpleado = 1;
+SELECT * FROM empleados WHERE idEmpleado = 2;
+SELECT * FROM empleados WHERE idEmpleado = 3;
+SELECT * FROM empleados WHERE idEmpleado = 10;
+SELECT * FROM empleados;
+
+SELECT * FROM familiares WHERE idFamilia = 1;
+SELECT * FROM familiares WHERE idFamilia = 2;
+SELECT * FROM familiares WHERE idFamilia = 3;
+SELECT * FROM familiares WHERE idFamilia = 10;
+SELECT * FROM familiares WHERE idEmpleado = 1;
+
+SELECT * FROM estudios WHERE idEstudio = 1;
+SELECT * FROM estudios WHERE idEstudio = 2;
+SELECT * FROM estudios WHERE idEstudio = 3;
+SELECT * FROM estudios WHERE idEstudio = 10;
+SELECT * FROM estudios WHERE idEmpleado = 1;
